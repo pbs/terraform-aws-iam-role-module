@@ -6,7 +6,7 @@
 
 ```hcl
 module "iam_role" {
-    source = "github.com/pbs/terraform-aws-iam-role-module?ref=x.y.z"
+    source = "github.com/pbs/terraform-aws-iam-role-module?ref=0.0.3"
 }
 ```
 
@@ -28,7 +28,7 @@ Integrate this module like so:
 
 ```hcl
 module "role" {
-  source = "github.com/pbs/terraform-aws-iam-role-module?ref=x.y.z"
+  source = "github.com/pbs/terraform-aws-iam-role-module?ref=0.0.3"
 
   policy_json = data.aws_iam_policy_document.policy_document.json
 
@@ -46,7 +46,7 @@ module "role" {
 
 If this repo is added as a subtree, then the version of the module should be close to the version shown here:
 
-`x.y.z`
+`0.0.3`
 
 Note, however that subtrees can be altered as desired within repositories.
 
