@@ -5,8 +5,6 @@ set -euo pipefail
 IFS=$'\n\t'
 
 GIT_ROOT=$(git rev-parse --show-toplevel)
-# shellcheck source=/dev/null
-source "$GIT_ROOT"/scripts/.scriptrc
 
 MOD_NAME="$(git remote -v | grep origin | awk '{printf $2}' | sed -nr 's~.*/terraform-aws-([^\.]+)\.git~\1~p')"
 MOD_SHORTNAME="$(echo "$MOD_NAME" | sed -nr 's~(.*)-module~\1~p' | tr -d '[:space:]')"
