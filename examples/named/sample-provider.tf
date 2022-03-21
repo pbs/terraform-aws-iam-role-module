@@ -3,9 +3,10 @@
 #   profile = "my-profile"
 #   default_tags {
 #     tags = {
-#       application = var.product
-#       environment = var.environment
-#       repo        = var.repo
+#       product      = var.product
+#       environment  = var.environment
+#       repo         = var.repo
+#       organization = var.organization
 #     }
 #   }
 # }
