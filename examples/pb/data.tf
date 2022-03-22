@@ -20,10 +20,23 @@ data "aws_iam_policy_document" "policy_document" {
   }
 }
 
+# Based off of https://aws.amazon.com/premiumsupport/knowledge-center/iam-permission-boundaries/
 data "aws_iam_policy_document" "permissions_boundary_policy_document" {
   statement {
     actions = [
-      "iam:*",
+      "*",
+    ]
+    resources = [
+      "*",
+    ]
+  }
+  statement {
+    actions = [
+      "account:*",
+      "aws-portal:*",
+      "savingsplans:*",
+      "cur:*",
+      "ce:*",
     ]
     resources = [
       "*",
@@ -78,6 +91,15 @@ data "aws_iam_policy_document" "permissions_boundary_policy_document" {
         "arn:aws:iam::${data.aws_caller_identity.current.account_id}:policy/${local.permission_boundary_name}",
       ]
     }
+  }
+  statement {
+    effect = "Deny"
+    actions = [
+      "iam:PassRole",
+    ]
+    resources = [
+      "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/*",
+    ]
   }
 }
 
