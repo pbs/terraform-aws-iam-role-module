@@ -31,6 +31,7 @@ data "aws_iam_policy_document" "permissions_boundary_policy_document" {
     ]
   }
   statement {
+    effect = "Deny"
     actions = [
       "account:*",
       "aws-portal:*",
