@@ -6,7 +6,7 @@
 
 ```hcl
 module "iam_role" {
-    source = "github.com/pbs/terraform-aws-iam-role-module?ref=0.0.4"
+    source = "github.com/pbs/terraform-aws-iam-role-module?ref=x.y.z"
 }
 ```
 
@@ -18,7 +18,7 @@ More information can be found on these install methods and more in [the document
 
 This module provisions an IAM role.
 
-It is assumed that this role will be used by an AWS service. As such, the `aws_service` parameter is required. This parameter populates the trust relationship that allows AWS services to assume the role.
+It is assumed that this role will be used by an AWS service. As such, the optional `aws_services` parameter is frequently used. This parameter populates the trust relationship that allows AWS services to assume the role.
 
 It is recommended that you use the `aws_iam_policy_document` data source to generate the JSON string passed into `policy_json`. This ensures that changes to your policy are detected and rendered correctly on plans and applies.
 
@@ -28,7 +28,7 @@ Integrate this module like so:
 
 ```hcl
 module "role" {
-  source = "github.com/pbs/terraform-aws-iam-role-module?ref=0.0.4"
+  source = "github.com/pbs/terraform-aws-iam-role-module?ref=x.y.z"
 
   policy_json = data.aws_iam_policy_document.policy_document.json
 
@@ -39,6 +39,7 @@ module "role" {
   repo         = var.repo
 
   # Optional Parameters
+  aws_services = ["lambda"]
 }
 ```
 
@@ -46,7 +47,7 @@ module "role" {
 
 If this repo is added as a subtree, then the version of the module should be close to the version shown here:
 
-`0.0.4`
+`x.y.z`
 
 Note, however that subtrees can be altered as desired within repositories.
 
@@ -99,6 +100,7 @@ No modules.
 | <a name="input_aws_services"></a> [aws\_services](#input\_aws\_services) | AWS services that will be assuming this role. e.g. [lambda, edgelambda] | `set(string)` | `[]` | no |
 | <a name="input_create_instance_profile"></a> [create\_instance\_profile](#input\_create\_instance\_profile) | Create an instance profile for this role | `bool` | `false` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name of the IAM role. If use\_prefix is true, this will be the prefix of the role name. If null, will default to `product` value. | `string` | `null` | no |
+| <a name="input_permissions_boundary_arn"></a> [permissions\_boundary\_arn](#input\_permissions\_boundary\_arn) | ARN of the permissions boundary to use for this role | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Extra tags | `map(string)` | `{}` | no |
 | <a name="input_use_prefix"></a> [use\_prefix](#input\_use\_prefix) | Use prefix instead of explicit name | `bool` | `true` | no |
 

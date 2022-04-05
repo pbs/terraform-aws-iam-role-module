@@ -28,3 +28,9 @@ variable "create_instance_profile" {
   default     = false
   type        = bool
 }
+
+variable "permissions_boundary_arn" {
+  description = "ARN of the permissions boundary to use for this role"
+  default     = null
+  type        = string
+}

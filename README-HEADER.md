@@ -18,7 +18,7 @@ More information can be found on these install methods and more in [the document
 
 This module provisions an IAM role.
 
-It is assumed that this role will be used by an AWS service. As such, the `aws_service` parameter is required. This parameter populates the trust relationship that allows AWS services to assume the role.
+It is assumed that this role will be used by an AWS service. As such, the optional `aws_services` parameter is frequently used. This parameter populates the trust relationship that allows AWS services to assume the role.
 
 It is recommended that you use the `aws_iam_policy_document` data source to generate the JSON string passed into `policy_json`. This ensures that changes to your policy are detected and rendered correctly on plans and applies.
 
@@ -39,6 +39,7 @@ module "role" {
   repo         = var.repo
 
   # Optional Parameters
+  aws_services = ["lambda"]
 }
 ```
 
