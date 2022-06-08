@@ -6,7 +6,7 @@
 
 ```hcl
 module "iam_role" {
-    source = "github.com/pbs/terraform-aws-iam-role-module?ref=0.1.0"
+    source = "github.com/pbs/terraform-aws-iam-role-module?ref=x.y.z"
 }
 ```
 
@@ -28,7 +28,7 @@ Integrate this module like so:
 
 ```hcl
 module "role" {
-  source = "github.com/pbs/terraform-aws-iam-role-module?ref=0.1.0"
+  source = "github.com/pbs/terraform-aws-iam-role-module?ref=x.y.z"
 
   policy_json = data.aws_iam_policy_document.policy_document.json
 
@@ -47,7 +47,7 @@ module "role" {
 
 If this repo is added as a subtree, then the version of the module should be close to the version shown here:
 
-`0.1.0`
+`x.y.z`
 
 Note, however that subtrees can be altered as desired within repositories.
 
@@ -84,7 +84,6 @@ No modules.
 | [aws_iam_policy.policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_role.role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
 | [aws_iam_role_policy_attachment.policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
-| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 | [aws_iam_policy_document.assume_role_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 
 ## Inputs
