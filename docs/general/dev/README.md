@@ -51,6 +51,6 @@ GIT_ROOT=$(git rev-parse --show-toplevel)
 
 ## CI
 
-This project is configured to continuously validate the checks mentioned above using the [GitHub Actions](/.github/workflows) in this repo. The actions will fire on any merge request to `main`, and will increment the patch number of the semver of the git tag when merged.
+This project is configured to continuously validate the checks mentioned above (with the exception of tests) using the [GitHub Actions](/.github/workflows) in this repo. The actions will fire on any merge request to `main`, and will increment the patch number of the semver of the git tag when merged according to the changes indicated in labels of pull requests.
 
 [terraform-docs]: https://github.com/terraform-docs/terraform-docs
