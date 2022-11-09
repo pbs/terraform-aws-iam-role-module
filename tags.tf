@@ -1,14 +1,14 @@
 variable "environment" {
-  description = "Environment (sharedtools, dev, staging, prod)"
+  description = "Environment (sharedtools, dev, staging, qa, prod)"
   type        = string
   validation {
-    condition     = contains(["sharedtools", "dev", "staging", "prod"], var.environment)
-    error_message = "The environment variable must be one of [sharedtools, dev, staging, prod]."
+    condition     = contains(["sharedtools", "dev", "staging", "qa", "prod"], var.environment)
+    error_message = "The environment variable must be one of [sharedtools, dev, staging, qa, prod]."
   }
 }
 
 variable "product" {
-  description = "Tag used to group resources according to application"
+  description = "Tag used to group resources according to product"
   type        = string
   validation {
     condition     = can(regex("[a-z\\-]+", var.product))
