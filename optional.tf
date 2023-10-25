@@ -34,3 +34,9 @@ variable "permissions_boundary_arn" {
   default     = null
   type        = string
 }
+
+variable "path" {
+  description = "Path to the role"
+  default     = null
+  type        = string
+}
