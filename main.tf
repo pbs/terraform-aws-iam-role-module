@@ -3,6 +3,7 @@ resource "aws_iam_role" "role" {
   name_prefix          = local.role_prefix
   assume_role_policy   = local.assume_role_policy
   permissions_boundary = var.permissions_boundary_arn
+  path                 = var.path
 
   tags = local.tags
 }
